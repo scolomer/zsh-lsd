@@ -18,12 +18,10 @@ else
   lsd_params=( "--config-file=${Plugins[ZSH_LSD]}/config.yaml" )
 
   alias ls='command lsd $lsd_params'
-  alias ll='command lsd --all --header --long $lsd_params'
-  alias llm='command lsd --all --header --long --sort time $lsd_params'
+  alias ll='command lsd --header --long $lsd_params'
+  alias llm='command lsd --header --long --sort time $lsd_params'
   alias la='command lsd -lhiUa --group-directories-first'
   alias lx='command lsd -lhiUSA --group-directories-first --total-size'
-  alias lt='command lsd --tree $lsd_params'
-  alias tree='command lsd --tree $lsd_params'
 
   [[ "$AUTOCD" = <-> ]] && enable_autocd="$AUTOCD"
 
@@ -32,7 +30,7 @@ else
     →auto-lsd() { command lsd $lsd_params; }
     [[ $chpwd_functions[(r)→auto-lsd] == →auto-lsd ]] || chpwd_functions=( →auto-lsd $chpwd_functions )
   fi
-  
+
   ret=$?
 fi
 
